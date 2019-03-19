@@ -1,0 +1,48 @@
+@startuml
+:Danışma: as Men1  
+:Hasta: as Men2  
+
+(Hasta Randevu Düzenleme) as (UC1)
+(Hasta Kabul Düzenleme) as (UC2)
+(Hasta Kayıt) as (UC3)  
+(Hasta Kabul) as (UC4) 
+(Yatan Hasta Kabul) as (UC5) 
+(Polikliniklere Hasta Kabul) as (UC6) 
+(Yatak Tahsis) as (UC7) 
+(Hasta Sigortası/Formlar/Ödenekler) as (UC8)
+(Hasta Raporları) as (UC9)
+(Poliklinik Seçimi) as (UC10)
+(Doktor Seçimi) as (UC11)
+(Randevu Oluştur) as (UC12)
+(Randevu Sil) as (UC13)
+
+Men2--> (UC12)
+
+
+(UC12) .> (UC11) : include
+(UC12) .> (UC10) : include
+
+
+(UC12) .> (UC1) : extends
+(UC13) .> (UC1) : extends
+
+
+
+(UC4) <|-- (UC5)
+(UC4) <|-- (UC6)
+(UC5) .> (UC7) : include
+
+
+Men1--> (UC1)
+Men1--> (UC3)
+(UC3) .> (UC1) : extends
+(UC3) .> (UC2) : extends
+ (UC4) .> (UC3) : include
+Men1--> (UC4)
+Men1--> (UC2)
+
+Men1--> (UC8)
+Men1--> (UC9)
+
+
+@enduml
