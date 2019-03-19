@@ -1,0 +1,66 @@
+@startuml
+:Danışma: as Men1  
+:Hasta: as Men2  
+:Doktor: as Men3  
+
+left to right direction
+(Hasta Randevu Düzenleme) as (UC1)
+(Hasta Kabul Düzenleme) as (UC2)
+(Hasta Kayıt) as (UC3)  
+(Hasta Kabul) as (UC4) 
+(Yatan Hasta Kabul) as (UC5) 
+(Polikliniklere Hasta Kabul) as (UC6) 
+(Yatak Tahsis) as (UC7) 
+(Hasta Sigortası/Formlar/Ödenekler) as (UC8)
+(Hasta Raporları) as (UC9)
+(Poliklinik Seçimi) as (UC10)
+(Doktor Seçimi) as (UC11)
+(Randevu Oluştur) as (UC12)
+(Randevu Sil) as (UC13)
+(Muayene Ol) as (UC14)
+(Reçete Yaz) as (UC15)
+(Tetkik Gönder) as (UC16)
+(Hasta Yatış) as (UC17)
+(Hasta Taburcu) as (UC18)
+
+Men2--> (UC14)
+
+Men3--> (UC15)
+Men3--> (UC16)
+Men3--> (UC17)
+Men3--> (UC18)
+
+
+Men2-> (UC12)
+
+
+(UC9) .> (UC15) : include
+(UC9) .> (UC16) : include
+
+(UC12) .> (UC11) : include
+(UC12) .> (UC10) : include
+
+(UC11) .> (UC10) : extends
+(UC12) .> (UC1) : extends
+(UC13) .> (UC1) : extends
+(UC17) .> (UC4) : extends
+(UC18) .> (UC8) : extends
+
+(UC4) <|-- (UC5)
+(UC4) <|-- (UC6)
+(UC5) .> (UC7) : include
+
+
+Men1--> (UC1)
+Men1--> (UC3)
+(UC3) .> (UC1) : extends
+(UC3) .> (UC2) : extends
+ (UC4) .> (UC3) : include
+Men1--> (UC4)
+Men1--> (UC2)
+
+Men1--> (UC8)
+Men1--> (UC9)
+
+
+@enduml
