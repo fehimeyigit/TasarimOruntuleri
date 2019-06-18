@@ -8,7 +8,7 @@ public class Main {
 	    Originator originator = new Originator();
 	      CareTaker careTaker = new CareTaker();
 	      
-	      originator.setState("Hasta1");
+	      originator.setState("Hasta1nn");
 	      originator.setState("Hasta2");
 	      careTaker.add(originator.saveStateToMemento());
 	      
