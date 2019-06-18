@@ -1,0 +1,42 @@
+
+# PlantUML Editor@startuml
+
+
+class Main{
+
+}
+
+
+class Builder{
++build()
+
+
+}
+
+class Hasta{
+  -TcKimlikNo:long
+  -HastaId:int
+  -HastaAdýSoyad:String
+  -Yas:String
+  -MedeniHal:String
+  -Cinsiyet:String
+  -EvAdresi:String
+  
+  +getTcKimlikNo()
+  +getHastaId()
+  +getHastaAdýSoyad()
+  +getYas()
+  +getMedeniHal()
+  +getCinsiyet()
+  +getEvAdresi()
+  
+
+}
+
+
+
+Main o-- Builder
+Builder <|-- Hasta
+
+
+@enduml

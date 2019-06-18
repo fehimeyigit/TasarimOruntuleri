@@ -1,0 +1,62 @@
+# PlantUML Editor
+
+1. select template
+2. write uml diagram
+
+@startuml
+
+
+package Obs <<Rectangle>> {
+
+interface Observer{
+ +notify():String
+
+}
+interface Observable{
+ +addHastaObserver()
+ +removeHastaObserver()
+ +notifyHastaObserver()
+
+}
+
+class NoticeObservable{
+ 
+  -observerList: List<Observer>
+  -message:String 
+   +addHastaObserver()
+   +removeHastaObserver()
+   +notifyHastaObserver()
+}
+
+class Hasta1{
+ 
+   - observable:Observable
+   +notify():String
+   +removeHastaObserver()
+	  
+}
+
+class Hasta2{
+ 
+   - observable:Observable
+   +setObservable()
+   +notify():String
+   +removeHastaObserver()
+	  
+}
+
+}
+
+class Main{
+  
+}
+
+
+
+Observable <|.. NoticeObservable
+Observer <|.. Hasta1
+Observer <|.. Hasta2
+Observer <-- NoticeObservable:uses
+
+Obs <- Main:ask
+@enduml

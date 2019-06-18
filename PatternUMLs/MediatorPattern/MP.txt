@@ -1,0 +1,50 @@
+# PlantUML Editor
+
+1. select template
+2. write uml diagram
+
+@startuml
+
+
+left to right direction
+
+interface IMediator{
+ +TahlilSýraGöster()
+ +addUser()
+
+}
+
+
+abstract class User{
+ 
+  	# mediator:IMediator
+	  #name
+	
+    +User()
+	+{abstract}  receive()
+  
+}
+
+class TahlilSýrasý{
+ 
+ -users: List<User> 
+ +TahlilSýrasý()
+  +TahlilSýraGöster()
+  +addUser()
+	  
+}
+
+class UserImp{
+ 
+  +UserImp()
+  +receive()
+}
+
+IMediator <|.. TahlilSýrasý
+User <|-- UserImp
+
+TahlilSýrasý  --> "0..*" User: users
+User  -> "0..1" IMediator: mediator
+
+
+@enduml

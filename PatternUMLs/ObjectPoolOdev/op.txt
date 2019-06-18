@@ -1,0 +1,45 @@
+# PlantUML Editor@startuml
+left to right direction
+
+class Main{
+ 
+ + {static} main()
+}
+
+
+
+class ObjectPool{
+  - {static}  instance:ObjectPool 
+	-  maxObject:int
+	
+	- availableObjects: ArrayList <Ilac>
+	- busyObjects: ArrayList <Ilac>
+	- i=-1;
+	-ObjectPool() 
+	+ {static} getInstance() : ObjectPool
+	+  getObject() :Ilac
+	+ reliaseObject()
+	+setPoolSize() 
+	+getbusySize() 
+	+ getAvSize() 
+
+}
+
+class Ilac{
+
+	- name
+	- long 
+	
+	+ Ilac() 
+  + getName() 
+  + setName() 
+	+getNo() 
+	+setNo() 
+
+}
+
+Main --> Ilac
+Main --> ObjectPool
+ObjectPool o-- Ilac
+
+@enduml

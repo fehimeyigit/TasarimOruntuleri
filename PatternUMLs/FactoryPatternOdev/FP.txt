@@ -1,0 +1,43 @@
+# PlantUML Editor@startuml
+
+
+class Main{
+ 
+ + {static} main()
+}
+
+package  f <<Rectangle>> {
+
+
+interface Iperson{
+ +AdSoyad()
+  +Yas() 
+
+	
+}
+
+class Hemsire{
+
+  +AdSoyad()
+  +Yas() 
+
+}
+
+class Hasta{
+
+  +AdSoyad()
+  +Yas() 
+
+}
+}
+
+class HospitalFactory{
+  static  createPerson():Iperson
+}
+Main --> HospitalFactory:asks
+Main --> Iperson:uses
+HospitalFactory --> f :creates
+Iperson <|.. Hemsire
+Iperson <|.. Hasta
+
+@enduml

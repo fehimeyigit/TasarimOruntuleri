@@ -1,0 +1,63 @@
+# PlantUML Editor
+
+1. select template
+2. write uml diagram
+
+@startuml
+
+interface ITetkik{
+ +decorate():String
+
+}
+
+
+abstract class TetkikDecorator{
+ 
+ +decorate():String
+
+}
+
+class Tetkik{
+ 
+  +decorate():String
+}
+
+class EEG{
+ 
+  +tetkik:ITetkik
+  +decorate():String
+  -decorateEEG():String
+}
+
+class KanTahlili{
+ 
+  +tetkik:ITetkik
+  +decorate():String
+  -decorateKanTahlili():String
+}
+class MRI{
+ 
+  +tetkik:ITetkik
+  +decorate():String
+  -decorateMRI():String
+}
+
+
+
+
+class Main{
+  
+}
+
+
+
+
+
+ITetkik <|.. Tetkik
+ITetkik <|.. TetkikDecorator
+TetkikDecorator <|-- EEG
+TetkikDecorator <|-- KanTahlili
+TetkikDecorator <|-- MRI
+
+TetkikDecorator <-- Main:ask
+@enduml

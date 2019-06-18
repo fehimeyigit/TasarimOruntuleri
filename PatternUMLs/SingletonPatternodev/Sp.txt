@@ -1,0 +1,50 @@
+# PlantUML Editor@startuml
+left to right direction
+
+class Main{
+ 
+ + {static} main()
+}
+
+abstract class Person{
+  #Tc:String
+	#Ad:String 
+	#Soyad:String
+	+Person()
+ 
+}
+
+class Hospital{
+  -{static} instance:Hospital
+   -Hospital() 
+   + {static} getInstance() 
+   -persons: Map<String,Person>
+	 -TryGetPerson() :Person
+   -TryGetDoktor() :Doktor
+	 -TryGetHasta() :Hasta
+}
+
+ class Doktor{
+ -speciality:String
+	+Doktor()
+  +getSpeciality()
+  +setSpeciality()
+}
+
+class Hasta{
+  
+   -mrn:int
+	+Hasta()
+  +getmrn()
+  +setmrn()
+
+}
+Person <|.. Hasta
+Person <|.. Doktor
+Main --> Hospital:ask
+Hospital --> Hospital
+Main --> Doktor
+Main --> Hasta
+
+
+@enduml

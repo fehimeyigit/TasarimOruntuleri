@@ -1,0 +1,52 @@
+# PlantUML Editor
+# PlantUML Editor
+
+1. select template
+2. write uml diagram
+
+@startuml
+
+
+package Obs <<Rectangle>> {
+
+
+
+class Originator{
+ 
+  - state:String
+   +setState()
+   +getState()
+  +saveStateToMemento():Memento 
+  +getStateFromMemento()
+	     
+}
+
+class Memento{
+ 
+  - state:String
+   +getState()
+  +Memento()
+	  
+}
+
+class CareTaker{
+ 
+  -mementoList:List<Memento>
+   +add()
+   +get():Memento 
+	  
+}
+
+}
+
+class Main{
+  
+}
+
+
+
+Memento <-- CareTaker
+Memento <-- Originator
+
+Obs <- Main:uses
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+interface Iterator{
+ +hasNext():boolean
+ +next():Object
+
+}
+
+class Main{
+ 
+ + {static} main()
+}
+
+interface Container{
+ +getIterator():Iterator
+ 
+}
+Main --> Container
+Main --> Iterator
+
+class PolikliniKCollection{
+ -poliklinik:String[*] 
+ +getIterator():Iterator
+ +getPoliklinik():String[] 
+}
+
+class PoliklinikIterator{
+ -poliklinikler:String[*] 
+ -index:int=0
+ +hasNext():boolean
+ +next():Object
+}
+
+
+
+
+
+PoliklinikIterator --> "-collection" PolikliniKCollection
+Container <|.. PolikliniKCollection
+Iterator <|.. PoliklinikIterator
+@enduml
