@@ -1,1 +1,2 @@
 
+Projenin bütün hali projem klasöründe, Uml diagramları ve kodları ise patternUmls klasöründedir.
